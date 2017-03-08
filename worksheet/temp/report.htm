@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<Title>Reports</title>
+<meta http-equiv="Content-type" content="text/html;charset=windows-1251">
+<link rel="stylesheet" type="text/css" href="{PREP}/skin/normal.css">
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/Report.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/AnchorPosition.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/date.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/calendar.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/dragiframe.js"></SCRIPT>
+<script language="Javascript" type="text/javascript">bringSelectedIframeToTop(true);</script>
+</head>
+<body background="{PREP}/images/candy.gif" topmargin="3" leftmargin="3" rightmargin="3" bottommargin="3">
+<IFRAME NAME="opiten" ID="opiten" STYLE="width:150px;height:150px;position:absolute;top:200;left:200;border:0px;display:none" SRC="{PREP}/calendar.php" frameborder="0"></IFRAME>
+<form name="admin" action="{PREP}/repaction.php" target="_blank" method="POST">
+	<table align="center" width="100%" height="100%" cellspacing="0" cellpadding="0">
+		{HEADER}
+    <tr>
+      <td align="center" height="100%"><table width="95%" height="100%" cellspacing="0" cellpadding="0">
+				<tr><td style="font-size:4pt">&nbsp;</td></tr>
+				<tr height="100%">
+		      <td valign="top"><table cellspacing="2" cellpadding="2">
+						<tr valign="top">
+							<td>
+  							<table id="sub" class="log" cellspacing="2" cellpadding="1">
+  								<tr>
+  									<th colspan="2">&nbsp;Worksheet of employee for a period&nbsp;</th>
+  								</tr>
+  								<tr>
+  									<td align="right">Employee</td>
+  									<td><select class="combo" name="rab_1" size="1">
+  										<option value="0">{RABOTNIK}</option>
+  									</select></td>
+  								</tr>
+  								<tr>
+  									<td align="right">From</td>
+  									<td>
+  										<input type="text" class="edit" name="beg_1" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.beg_1,'an1','dd.MM.yyyy'); return false;" NAME="an1" ID="an1">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr>
+  									<td align="right">To</td>
+  									<td>
+  										<input type="text" class="edit" name="end_1" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.end_1,'an2','dd.MM.yyyy'); return false;" NAME="an2" ID="an2">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr align="center">
+  									<td colspan="2"><input type="submit" class="button3" name="cmdKarta" value="SHOW" onClick="javascript: return ValidKarta(this.form);"></td>
+  								</tr>
+  							</table>
+                <br>
+  							<table id="sub" class="log" cellspacing="2" cellpadding="1">
+  								<tr>
+  									<th colspan="2">&nbsp;Job done per employee and operation&nbsp;</th>
+  								</tr>
+  								<tr>
+  									<td align="right">Order name</td>
+  									<td><select class="combo" name="ord_2" size="1">
+  										<option value="0">{ORDERS}</option>
+  									</select></td>
+  								</tr>
+  								<tr>
+  									<td align="right">From</td>
+  									<td>
+  										<input type="text" class="edit" name="beg_2" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.beg_2,'an3','dd.MM.yyyy'); return false;" NAME="an3" ID="an3">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr>
+  									<td align="right">To</td>
+  									<td>
+  										<input type="text" class="edit" name="end_2" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.end_2,'an4','dd.MM.yyyy'); return false;" NAME="an4" ID="an4">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr align="center">
+  									<td colspan="2"><input type="submit" class="button3" name="cmdRab" value="SHOW" onClick="javascript: return ValidRab(this.form);"></td>
+  								</tr>
+  							</table>
+                <br>
+  							<table id="sub" class="log" cellspacing="2" cellpadding="1">
+  								<tr>
+  									<th colspan="2">&nbsp;Job done per order and operation&nbsp;</th>
+  								</tr>
+  								<tr>
+  									<td align="right">From</td>
+  									<td>
+  										<input type="text" class="edit" name="beg_3" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.beg_3,'an5','dd.MM.yyyy'); return false;" NAME="an5" ID="an5">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr>
+  									<td align="right">To</td>
+  									<td>
+  										<input type="text" class="edit" name="end_3" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.end_3,'an6','dd.MM.yyyy'); return false;" NAME="an6" ID="an6">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr align="center">
+  									<td colspan="2"><input type="submit" class="button3" name="cmdOper" value="SHOW" onClick="javascript: return ValidOper(this.form);"></td>
+  								</tr>
+  							</table>
+                <br>
+  							<table id="sub" class="log" cellspacing="2" cellpadding="1">
+  								<tr>
+  									<th colspan="2">&nbsp;Job done per team, order, operation&nbsp;</th>
+  								</tr>
+  								<tr>
+  									<td align="right">Team</td>
+  									<td><select class="combo" name="bri_4" size="1">
+  										<option value="0">{BRIGADA}</option>
+  									</select></td>
+  								</tr>
+  								<tr>
+  									<td align="right">Order</td>
+  									<td><select class="combo" name="ord_4" size="1">
+  										<option value="0">{ORDERS}</option>
+  									</select></td>
+  								</tr>
+  								<tr>
+  									<td align="right">From</td>
+  									<td>
+  										<input type="text" class="edit" name="beg_4" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.beg_4,'an7','dd.MM.yyyy'); return false;" NAME="an7" ID="an7">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr>
+  									<td align="right">To</td>
+  									<td>
+  										<input type="text" class="edit" name="end_4" size="10" maxlength="10">&nbsp;
+  										<A onClick="cal1.select(document.admin.end_4,'an8','dd.MM.yyyy'); return false;" NAME="an8" ID="an8">
+  			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+  					    			</A>
+  					    		</td>
+  					    	</tr>
+  					    	<tr align="center">
+  									<td colspan="2"><input type="submit" class="button3" name="cmdNova" value="SHOW" onClick="javascript: return ValidNova(this.form);"></td>
+  								</tr>
+  							</table>
+							</td>
+							<td><table id="sub" class="log" cellspacing="2" cellpadding="1">
+								<tr>
+									<th colspan="2">&nbsp;Payroll for salary&nbsp;</th>
+								</tr>
+								<tr>
+									<td align="right">Month</td>
+									<td>
+										<input type="text" class="edit" name="mesec" size="10" maxlength="10">&nbsp;
+										<A onClick="cal2.select(document.admin.mesec,'an7','MM.yyyy'); return false;" NAME="an7" ID="an7">
+			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+					    			</A>
+					    		</td>
+					    	</tr>
+					    	<tr align="center">
+									<td colspan="2"><input type="submit" class="button3" name="cmdZap" value="SHOW" onClick="javascript: return ValidZap(this.form);"></td>
+								</tr>
+								<tr>
+							    <td colspan="2"><table bgcolor="white" cellspacing="0" bordercolor="black" border="1" style="border-collapse:collapse">
+							      <tr align="center" style="font-weight:bold; color:black" bgcolor="#AED5EF">
+							        <td><!--<input type="checkbox" name="chek_all" value="1" onClick="javascript:all_check(this.form,this.checked);">--></td>
+							        <td>Exclude these operations</td>
+							      </tr>
+    								<tr><td>{OPERA}</td></tr>
+							    </table></td>
+							  </tr>
+							</table></td>
+						</tr>
+					</table></td>
+				</tr>
+				<tr><td style="font-size:4pt">&nbsp;</td></tr>
+			</table></td>
+		</tr>
+  {FOOTER}
+</table>
+<script language="Javascript" type="text/javascript">
+	var cal1 = new CalendarPopup('opiten','{PREP}/calendar.php?calo=cal1');
+	cal1.setWeekStartDay(1);
+	var cal2 = new CalendarPopup('opiten','{PREP}/calendar.php?calo=cal2');
+	cal2.setWeekStartDay(1);
+	cal2.showYearNavigation();
+	cal2.setDisplayType('month');
+	function all_check(top,state)
+	{
+		for(var i=0; i<top.elements.length; i++)
+		{
+			z = top.elements[i]; 
+			if(z.name.substr(0,5)=='chek[') z.checked = state;
+		}
+	}
+  <!--{ERROR}-->
+</script>
+</form>
+</body>
+</html>

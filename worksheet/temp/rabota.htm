@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<Title>Log of the job done</title>
+<meta http-equiv="Content-type" content="text/html;charset=windows-1251">
+<link rel="stylesheet" type="text/css" href="{PREP}/skin/normal.css">
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/AnchorPosition.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/date.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/calendar.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" SRC="{PREP}/INC/js/dragiframe.js"></SCRIPT>
+<script language="Javascript" type="text/javascript">bringSelectedIframeToTop(true);</script>
+</head>
+<body background="{PREP}/images/candy.gif" topmargin="3" leftmargin="3" rightmargin="3" bottommargin="3">
+<IFRAME NAME="opiten" ID="opiten" STYLE="width:150px;height:150px;position:absolute;top:200;left:200;border:0px;display:none" SRC="{PREP}/calendar.php" frameborder="0"></IFRAME>
+<form name="admin" action="{PREP}/rabota.php" method="POST">
+	<table align="center" width="100%" height="100%" cellspacing="0" cellpadding="0">
+		{HEADER}
+    <tr>
+      <td align="center" height="100%"><table width="95%" height="100%" cellspacing="0" cellpadding="0">
+				<tr><td style="font-size:4pt">&nbsp;</td></tr>
+				<tr height="100%">
+		      <td width="100%" valign="top"><table align="center" cellspacing="2" cellpadding="2">
+		      	<tr>
+		      		<td>{MONTH_LIST}</td>
+		      	</tr>
+						<tr valign="top">
+							<td align="center"><table class="list_1" cellspacing="0" cellpadding="3">
+								<caption style="font-weight:bold;font-size:12pt">{CUR_MONT}</caption>
+								<tr align="center" bgcolor="#00E099">
+									<td>Employee</td>
+									<td>Date</td>
+									<td>Work type</td>
+									<td>Quantity</td>
+									<td>Order name</td>
+									<td>Actions</td>
+									<td>Created by</td>
+									<td>Created on</td>
+									<td>Last change by</td>
+									<td>Last change on</td>
+								</tr>
+								<tr align="center">
+									<td><select class="combo" name="nomer" size="1">
+										<option value="0">{NOMER}</option>
+									</select></td>
+									<td>
+										<input type="text" class="edit" name="datum" size="10" maxlength="10" value="{DATUM}">&nbsp;
+										<A onClick="cal1.select(document.admin.datum,'an1','dd.MM.yyyy'); return false;" NAME="an1" ID="an1">
+			  		  			<IMG SRC="{PREP}/images/calendar.gif" BORDER="0" ALIGN="middle" width="16" height="16">
+					    			</A>
+									</td>
+									<td><select class="combo" name="opera" size="1">
+										<option value="0">{OPERA}</option>
+									</select></td>
+									<td><input type="text" class="edit" name="rabota" size="5" maxlength="5" value="{RABOTA}"></td>
+									<td><select class="combo" name="orderid" size="1">
+										<option value="0">{ORDERID}</option>
+									</select></td>
+									<td><input type="submit" class="button3" name="edit1" value="{EDIT_1}"></td>
+									<td colspan="4">&nbsp;</td>
+								</tr>
+								<tr><td>{ITEM_1}</td></tr>
+							</table></td>
+						</tr>
+					</table></td>
+				</tr>
+				<tr><td style="font-size:4pt">&nbsp;</td></tr>
+			</table></td>
+		</tr>
+  {FOOTER}
+</table>
+<input type="hidden" name="edit_1" value='{EDITID1}'>
+<input type="hidden" name="month" value='{MONTH_ID}'>
+<script language="Javascript" type="text/javascript">
+	var cal1 = new CalendarPopup('opiten','{PREP}/calendar.php?calo=cal1');
+	cal1.setWeekStartDay(1);
+  function FinalConfirm(str1)
+  {
+  	var truthBeTold = window.confirm(str1);
+  	if (truthBeTold) return true; else return false;
+  }
+  <!--{ERROR}-->
+</script>
+</form>
+</body>
+</html>
